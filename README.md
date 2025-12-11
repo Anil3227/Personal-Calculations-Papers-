@@ -5,9 +5,6 @@
 Dynamical Stability Calculations
 Step-by-step computations of autonomous systems, fixed points, and stability analysis for different dark energy models (Scalar field and Modified Gravity).
 
-Quintessence and phantom fields
-Exponential and power-law potentials
-Modified gravity scenarios
 
 **Contour Plots for Cosmological Models
 **
