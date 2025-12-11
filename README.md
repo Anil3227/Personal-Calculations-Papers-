@@ -1,27 +1,36 @@
- This repository contains a collection of cosmological tools, codes, and calculations related to my research and papers. It primarily focuses on dark energy, scalar field models, and modified gravity.
-
-📂 Repository Contents
-
+📂 Repository Highlights
 Dynamical Stability Calculations
-Step-by-step computations of autonomous systems, fixed points, and stability analysis for different dark energy models (Scalar field and Modified Gravity).
 
+Step-by-step derivations of autonomous systems, fixed points, and stability analysis for various dark energy and scalar field models.
 
-**Contour Plots for Cosmological Models
-**
+Includes both standard scalar field and modified gravity scenarios.
+
+Contour Plots for Cosmological Models
+
+Numerical simulations visualizing the behavior of cosmological parameters.
+
+Generate phase-space diagrams, density parameter contours, and equation-of-state maps.
+
 Model Comparisons
-Scripts to compare cosmological models with observational constraints and visualize parameter spaces.
+
+Scripts to compare different cosmological models with observational constraints.
+
+Explore parameter spaces and assess model viability.
 
 Mathematica / Wolfram Language Codes
-Most of the calculations are implemented in Mathematica for ease of symbolic and numerical computation.
+
+Most of the work is implemented in Mathematica for efficient symbolic and numerical computations.
+
+Easy to adapt for new potentials, models, or research projects.
 
 📌 Key Features
 
-Autonomous system analysis for scalar fields
+Complete autonomous system analysis for scalar fields
 
-Phase space and stability analysis
+Detailed phase-space and stability exploration
 
-Contour plots for density parameters, equation of state, and effective potential
+Contour plots for density parameters, effective potentials, and equations of state
 
-Flexibility to implement new potentials or models easily
+Flexible framework for adding new potentials or models
 
-Step-by-step calculations suitable for learning and reference.
+Step-by-step calculations designed for learning, research, and reference
