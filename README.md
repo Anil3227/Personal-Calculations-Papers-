@@ -14,7 +14,7 @@ This repository is a comprehensive collection of **cosmological tools, codes, an
 ### **Contour Plots for Cosmological Models**
 
 * Numerical simulations visualizing the behavior of cosmological parameters.
-* Generate **phase-space diagrams**, **density parameter contours**, and **equation-of-state maps**.
+* Chains for different models and Dataset.
 
 ### **Model Comparisons**
 
@@ -32,6 +32,6 @@ This repository is a comprehensive collection of **cosmological tools, codes, an
 
 * Complete **autonomous system analysis** for scalar fields
 * Detailed **phase-space and stability exploration**
-* **Contour plots** for density parameters, effective potentials, and equations of state
+* **Contour plots** for density parameters, and equations of state
 * Flexible framework for adding **new potentials or models**
 * Step-by-step calculations designed for **learning, research, and reference**
