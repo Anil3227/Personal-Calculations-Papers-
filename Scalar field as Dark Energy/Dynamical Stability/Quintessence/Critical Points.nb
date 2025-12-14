@@ -1,0 +1,1999 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     79572,       1991]
+NotebookOptionsPosition[     76128,       1921]
+NotebookOutlinePosition[     76552,       1938]
+CellTagsIndexPosition[     76509,       1935]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[StyleBox["Topic:   Finding Critical Points ( For Exponential \
+potential ).",
+ FontColor->RGBColor[1, 0, 0]]], "Subsection",
+ CellChangeTimes->{{3.9746854626266317`*^9, 3.9746855084344883`*^9}, {
+  3.974688665275435*^9, 3.9746887141228657`*^9}, {3.974692926975155*^9, 
+  3.974692934523403*^9}},
+ Background->RGBColor[
+  0.88, 1, 0.88],ExpressionUUID->"a4a5b08b-e354-4ed0-8915-9aae3dfe61fe"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ClearAll", "[", 
+   RowBox[{"x", ",", "y", ",", "\[Lambda]"}], "]"}], "\n"}]], "Input",
+ CellChangeTimes->{{3.974686431983365*^9, 3.974686431985684*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"c34fb0e4-0749-4f7e-bbe0-ecae96530d03"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Autonomous Equations ",
+ FontColor->RGBColor[1, 0, 0]]], "Subsection",
+ CellChangeTimes->{{3.974686931433049*^9, 3.974686955574059*^9}},
+ Background->RGBColor[
+  0.88, 1, 0.88],ExpressionUUID->"da64a89a-b164-4701-a5d7-19df0a16f412"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"dxoverdN", " ", "=", " ", 
+   RowBox[{
+    RowBox[{
+     FractionBox["3", "2"], " ", "x", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "1"}], "+", 
+       SuperscriptBox["x", "2"], "-", 
+       SuperscriptBox["y", "2"]}], ")"}]}], "+", 
+    RowBox[{
+     SqrtBox[
+      FractionBox["3", "2"]], " ", 
+     SuperscriptBox["y", "2"], " ", "\[Lambda]"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"dyoverdN", "=", "  ", 
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox["1", "2"]}], " ", "y", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "3"}], "-", 
+      RowBox[{"3", " ", 
+       SuperscriptBox["x", "2"]}], "+", 
+      RowBox[{"3", " ", 
+       SuperscriptBox["y", "2"]}], "+", 
+      RowBox[{
+       SqrtBox["6"], " ", "x", "  ", "\[Lambda]"}]}], ")"}]}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.974686129962043*^9, 3.974686162945222*^9}, {
+  3.9746862418186283`*^9, 3.974686270673461*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"abf7e5e6-22f2-4028-8abd-b46dac579057"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Cosmological parameters in terms of dimensionless \
+variables :",
+ FontColor->RGBColor[1, 0, 0]]], "Subsection",
+ CellChangeTimes->{{3.9744393891957607`*^9, 3.974439416393141*^9}, {
+  3.9744396193964653`*^9, 3.97443963900124*^9}},
+ Background->RGBColor[
+  0.88, 1, 0.88],ExpressionUUID->"06669671-932a-466f-889a-cde6b9605afc"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"\[CapitalOmega]phi", "=", 
+   RowBox[{
+    RowBox[{"x", "^", "2"}], "+", 
+    RowBox[{"y", "^", "2"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[CapitalOmega]m", "=", 
+   RowBox[{"1", "-", "\[CapitalOmega]phi"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"wphi", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], "-", 
+      RowBox[{"y", "^", "2"}]}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"x", "^", "2"}], "+", 
+      RowBox[{"y", "^", "2"}]}], ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"weff", "=", 
+   RowBox[{
+    RowBox[{"\[CapitalOmega]phi", "*", " ", "wphi"}], " ", "+", " ", 
+    RowBox[{"\[CapitalOmega]m", " ", "*", " ", "w"}]}]}], " ", ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"w", "=", "0"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.5988705931529503`*^9, 3.598870629538002*^9}, 
+   3.609922230174745*^9, {3.974593248164028*^9, 3.974593265824148*^9}, {
+   3.97459460548096*^9, 3.974594606904745*^9}, {3.974606612819035*^9, 
+   3.974606613305958*^9}, 3.974687417179462*^9, {3.9746918429323263`*^9, 
+   3.9746918540355587`*^9}, 3.97469194118048*^9, {3.9746920905332003`*^9, 
+   3.97469209629961*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"05e24f64-3486-49f5-84dc-2ce8e3650981"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Critical Points",
+ FontColor->RGBColor[1, 0, 0]]], "Subsection",
+ CellChangeTimes->{{3.974687062326578*^9, 3.974687066574613*^9}},
+ Background->RGBColor[
+  0.88, 1, 0.88],ExpressionUUID->"dbd80992-6c91-49ee-ad06-f8edf9191a23"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"critPoints", "=", 
+   RowBox[{"Solve", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"dxoverdN", "==", "0"}], ",", 
+       RowBox[{"dyoverdN", "==", "0"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y"}], "}"}], ",", "Reals"}], "]"}]}], 
+  "\n"}]], "Input",
+ CellChangeTimes->{{3.974686520645237*^9, 3.974686542242157*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"3b83f29d-87c9-4b72-aae7-917a67321553"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", 
+      TemplateBox[{
+        RowBox[{"-", "1"}], 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"0", "<", "\[Lambda]", "<", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "<", "\[Lambda]", "<", "0"}], 
+                  "||", 
+                  RowBox[{
+                    SqrtBox[
+                    FractionBox["3", "2"]], "<", "\[Lambda]", "<", 
+                    SqrtBox["3"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["3"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}]}], "||", 
+                  RowBox[{
+                    SqrtBox["3"], "<", "\[Lambda]", "<", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["6"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["3"]}]}], "||", 
+                  RowBox[{"\[Lambda]", ">", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{"\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["6"]}]}]}], Short[#, 7]& ]], Annotation[#, 
+               Short[
+                Or[
+                 Inequality[
+                 0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-Rational[3, 2]^Rational[1, 2], 
+                  Less, $CellContext`\[Lambda], Less, 0], 
+                 Inequality[
+                 Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, 3^Rational[1, 2]], 
+                 
+                 Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -Rational[3, 2]^Rational[1, 2]], 
+                 Inequality[
+                 3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -3^Rational[1, 2]], $CellContext`\[Lambda] > 
+                 6^Rational[1, 2], $CellContext`\[Lambda] < -6^
+                   Rational[1, 2]], 7], "Tooltip"]& ], "IconizedCustomName", 
+             StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Or", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["2856", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, "IconizedObject"]], 
+         Or[
+          Inequality[
+          0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+           Rational[1, 2]], 
+          
+          Inequality[-Rational[3, 2]^Rational[1, 2], 
+           Less, $CellContext`\[Lambda], Less, 0], 
+          Inequality[
+          Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 
+           3^Rational[1, 2]], 
+          
+          Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, -
+           Rational[3, 2]^Rational[1, 2]], 
+          Inequality[
+          3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+           Rational[1, 2]], 
+          
+          Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+           Less, -3^Rational[1, 2]], $CellContext`\[Lambda] > 
+          6^Rational[1, 2], $CellContext`\[Lambda] < -6^Rational[1, 2]], 
+         SelectWithContents -> True, Selectable -> False]},
+       "ConditionalExpression"]}], ",", 
+     RowBox[{"y", "\[Rule]", 
+      TemplateBox[{"0", 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"0", "<", "\[Lambda]", "<", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "<", "\[Lambda]", "<", "0"}], 
+                  "||", 
+                  RowBox[{
+                    SqrtBox[
+                    FractionBox["3", "2"]], "<", "\[Lambda]", "<", 
+                    SqrtBox["3"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["3"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}]}], "||", 
+                  RowBox[{
+                    SqrtBox["3"], "<", "\[Lambda]", "<", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["6"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["3"]}]}], "||", 
+                  RowBox[{"\[Lambda]", ">", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{"\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["6"]}]}]}], Short[#, 7]& ]], Annotation[#, 
+               Short[
+                Or[
+                 Inequality[
+                 0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-Rational[3, 2]^Rational[1, 2], 
+                  Less, $CellContext`\[Lambda], Less, 0], 
+                 Inequality[
+                 Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, 3^Rational[1, 2]], 
+                 
+                 Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -Rational[3, 2]^Rational[1, 2]], 
+                 Inequality[
+                 3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -3^Rational[1, 2]], $CellContext`\[Lambda] > 
+                 6^Rational[1, 2], $CellContext`\[Lambda] < -6^
+                   Rational[1, 2]], 7], "Tooltip"]& ], "IconizedCustomName", 
+             StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Or", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["2856", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, "IconizedObject"]], 
+         Or[
+          Inequality[
+          0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+           Rational[1, 2]], 
+          
+          Inequality[-Rational[3, 2]^Rational[1, 2], 
+           Less, $CellContext`\[Lambda], Less, 0], 
+          Inequality[
+          Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 
+           3^Rational[1, 2]], 
+          
+          Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, -
+           Rational[3, 2]^Rational[1, 2]], 
+          Inequality[
+          3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+           Rational[1, 2]], 
+          
+          Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+           Less, -3^Rational[1, 2]], $CellContext`\[Lambda] > 
+          6^Rational[1, 2], $CellContext`\[Lambda] < -6^Rational[1, 2]], 
+         SelectWithContents -> True, Selectable -> False]},
+       "ConditionalExpression"]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", 
+      TemplateBox[{"0", 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"0", "<", "\[Lambda]", "<", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "<", "\[Lambda]", "<", "0"}], 
+                  "||", 
+                  RowBox[{
+                    SqrtBox[
+                    FractionBox["3", "2"]], "<", "\[Lambda]", "<", 
+                    SqrtBox["3"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["3"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}]}], "||", 
+                  RowBox[{
+                    SqrtBox["3"], "<", "\[Lambda]", "<", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["6"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["3"]}]}], "||", 
+                  RowBox[{"\[Lambda]", ">", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{"\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["6"]}]}]}], Short[#, 7]& ]], Annotation[#, 
+               Short[
+                Or[
+                 Inequality[
+                 0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-Rational[3, 2]^Rational[1, 2], 
+                  Less, $CellContext`\[Lambda], Less, 0], 
+                 Inequality[
+                 Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, 3^Rational[1, 2]], 
+                 
+                 Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -Rational[3, 2]^Rational[1, 2]], 
+                 Inequality[
+                 3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -3^Rational[1, 2]], $CellContext`\[Lambda] > 
+                 6^Rational[1, 2], $CellContext`\[Lambda] < -6^
+                   Rational[1, 2]], 7], "Tooltip"]& ], "IconizedCustomName", 
+             StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Or", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["2856", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, "IconizedObject"]], 
+         Or[
+          Inequality[
+          0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+           Rational[1, 2]], 
+          
+          Inequality[-Rational[3, 2]^Rational[1, 2], 
+           Less, $CellContext`\[Lambda], Less, 0], 
+          Inequality[
+          Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 
+           3^Rational[1, 2]], 
+          
+          Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, -
+           Rational[3, 2]^Rational[1, 2]], 
+          Inequality[
+          3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+           Rational[1, 2]], 
+          
+          Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+           Less, -3^Rational[1, 2]], $CellContext`\[Lambda] > 
+          6^Rational[1, 2], $CellContext`\[Lambda] < -6^Rational[1, 2]], 
+         SelectWithContents -> True, Selectable -> False]},
+       "ConditionalExpression"]}], ",", 
+     RowBox[{"y", "\[Rule]", 
+      TemplateBox[{"0", 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"0", "<", "\[Lambda]", "<", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "<", "\[Lambda]", "<", "0"}], 
+                  "||", 
+                  RowBox[{
+                    SqrtBox[
+                    FractionBox["3", "2"]], "<", "\[Lambda]", "<", 
+                    SqrtBox["3"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["3"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}]}], "||", 
+                  RowBox[{
+                    SqrtBox["3"], "<", "\[Lambda]", "<", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["6"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["3"]}]}], "||", 
+                  RowBox[{"\[Lambda]", ">", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{"\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["6"]}]}]}], Short[#, 7]& ]], Annotation[#, 
+               Short[
+                Or[
+                 Inequality[
+                 0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-Rational[3, 2]^Rational[1, 2], 
+                  Less, $CellContext`\[Lambda], Less, 0], 
+                 Inequality[
+                 Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, 3^Rational[1, 2]], 
+                 
+                 Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -Rational[3, 2]^Rational[1, 2]], 
+                 Inequality[
+                 3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -3^Rational[1, 2]], $CellContext`\[Lambda] > 
+                 6^Rational[1, 2], $CellContext`\[Lambda] < -6^
+                   Rational[1, 2]], 7], "Tooltip"]& ], "IconizedCustomName", 
+             StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Or", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["2856", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, "IconizedObject"]], 
+         Or[
+          Inequality[
+          0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+           Rational[1, 2]], 
+          
+          Inequality[-Rational[3, 2]^Rational[1, 2], 
+           Less, $CellContext`\[Lambda], Less, 0], 
+          Inequality[
+          Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 
+           3^Rational[1, 2]], 
+          
+          Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, -
+           Rational[3, 2]^Rational[1, 2]], 
+          Inequality[
+          3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+           Rational[1, 2]], 
+          
+          Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+           Less, -3^Rational[1, 2]], $CellContext`\[Lambda] > 
+          6^Rational[1, 2], $CellContext`\[Lambda] < -6^Rational[1, 2]], 
+         SelectWithContents -> True, Selectable -> False]},
+       "ConditionalExpression"]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", 
+      TemplateBox[{"1", 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"0", "<", "\[Lambda]", "<", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "<", "\[Lambda]", "<", "0"}], 
+                  "||", 
+                  RowBox[{
+                    SqrtBox[
+                    FractionBox["3", "2"]], "<", "\[Lambda]", "<", 
+                    SqrtBox["3"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["3"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}]}], "||", 
+                  RowBox[{
+                    SqrtBox["3"], "<", "\[Lambda]", "<", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["6"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["3"]}]}], "||", 
+                  RowBox[{"\[Lambda]", ">", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{"\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["6"]}]}]}], Short[#, 7]& ]], Annotation[#, 
+               Short[
+                Or[
+                 Inequality[
+                 0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-Rational[3, 2]^Rational[1, 2], 
+                  Less, $CellContext`\[Lambda], Less, 0], 
+                 Inequality[
+                 Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, 3^Rational[1, 2]], 
+                 
+                 Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -Rational[3, 2]^Rational[1, 2]], 
+                 Inequality[
+                 3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -3^Rational[1, 2]], $CellContext`\[Lambda] > 
+                 6^Rational[1, 2], $CellContext`\[Lambda] < -6^
+                   Rational[1, 2]], 7], "Tooltip"]& ], "IconizedCustomName", 
+             StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Or", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["2856", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, "IconizedObject"]], 
+         Or[
+          Inequality[
+          0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+           Rational[1, 2]], 
+          
+          Inequality[-Rational[3, 2]^Rational[1, 2], 
+           Less, $CellContext`\[Lambda], Less, 0], 
+          Inequality[
+          Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 
+           3^Rational[1, 2]], 
+          
+          Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, -
+           Rational[3, 2]^Rational[1, 2]], 
+          Inequality[
+          3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+           Rational[1, 2]], 
+          
+          Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+           Less, -3^Rational[1, 2]], $CellContext`\[Lambda] > 
+          6^Rational[1, 2], $CellContext`\[Lambda] < -6^Rational[1, 2]], 
+         SelectWithContents -> True, Selectable -> False]},
+       "ConditionalExpression"]}], ",", 
+     RowBox[{"y", "\[Rule]", 
+      TemplateBox[{"0", 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"0", "<", "\[Lambda]", "<", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "<", "\[Lambda]", "<", "0"}], 
+                  "||", 
+                  RowBox[{
+                    SqrtBox[
+                    FractionBox["3", "2"]], "<", "\[Lambda]", "<", 
+                    SqrtBox["3"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["3"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}]}], "||", 
+                  RowBox[{
+                    SqrtBox["3"], "<", "\[Lambda]", "<", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["6"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["3"]}]}], "||", 
+                  RowBox[{"\[Lambda]", ">", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{"\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["6"]}]}]}], Short[#, 7]& ]], Annotation[#, 
+               Short[
+                Or[
+                 Inequality[
+                 0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-Rational[3, 2]^Rational[1, 2], 
+                  Less, $CellContext`\[Lambda], Less, 0], 
+                 Inequality[
+                 Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, 3^Rational[1, 2]], 
+                 
+                 Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -Rational[3, 2]^Rational[1, 2]], 
+                 Inequality[
+                 3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -3^Rational[1, 2]], $CellContext`\[Lambda] > 
+                 6^Rational[1, 2], $CellContext`\[Lambda] < -6^
+                   Rational[1, 2]], 7], "Tooltip"]& ], "IconizedCustomName", 
+             StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Or", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["2856", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, "IconizedObject"]], 
+         Or[
+          Inequality[
+          0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+           Rational[1, 2]], 
+          
+          Inequality[-Rational[3, 2]^Rational[1, 2], 
+           Less, $CellContext`\[Lambda], Less, 0], 
+          Inequality[
+          Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 
+           3^Rational[1, 2]], 
+          
+          Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, -
+           Rational[3, 2]^Rational[1, 2]], 
+          Inequality[
+          3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+           Rational[1, 2]], 
+          
+          Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+           Less, -3^Rational[1, 2]], $CellContext`\[Lambda] > 
+          6^Rational[1, 2], $CellContext`\[Lambda] < -6^Rational[1, 2]], 
+         SelectWithContents -> True, Selectable -> False]},
+       "ConditionalExpression"]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", 
+      TemplateBox[{
+        FractionBox[
+         SqrtBox[
+          FractionBox["3", "2"]], "\[Lambda]"], 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"0", "<", "\[Lambda]", "<", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "<", "\[Lambda]", "<", "0"}], 
+                  "||", 
+                  RowBox[{
+                    SqrtBox[
+                    FractionBox["3", "2"]], "<", "\[Lambda]", "<", 
+                    SqrtBox["3"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["3"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}]}], "||", 
+                  RowBox[{
+                    SqrtBox["3"], "<", "\[Lambda]", "<", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["6"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["3"]}]}], "||", 
+                  RowBox[{"\[Lambda]", ">", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{"\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["6"]}]}]}], Short[#, 7]& ]], Annotation[#, 
+               Short[
+                Or[
+                 Inequality[
+                 0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-Rational[3, 2]^Rational[1, 2], 
+                  Less, $CellContext`\[Lambda], Less, 0], 
+                 Inequality[
+                 Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, 3^Rational[1, 2]], 
+                 
+                 Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -Rational[3, 2]^Rational[1, 2]], 
+                 Inequality[
+                 3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -3^Rational[1, 2]], $CellContext`\[Lambda] > 
+                 6^Rational[1, 2], $CellContext`\[Lambda] < -6^
+                   Rational[1, 2]], 7], "Tooltip"]& ], "IconizedCustomName", 
+             StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Or", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["2856", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, "IconizedObject"]], 
+         Or[
+          Inequality[
+          0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+           Rational[1, 2]], 
+          
+          Inequality[-Rational[3, 2]^Rational[1, 2], 
+           Less, $CellContext`\[Lambda], Less, 0], 
+          Inequality[
+          Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 
+           3^Rational[1, 2]], 
+          
+          Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, -
+           Rational[3, 2]^Rational[1, 2]], 
+          Inequality[
+          3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+           Rational[1, 2]], 
+          
+          Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+           Less, -3^Rational[1, 2]], $CellContext`\[Lambda] > 
+          6^Rational[1, 2], $CellContext`\[Lambda] < -6^Rational[1, 2]], 
+         SelectWithContents -> True, Selectable -> False]},
+       "ConditionalExpression"]}], ",", 
+     RowBox[{"y", "\[Rule]", 
+      TemplateBox[{
+        RowBox[{
+          RowBox[{"-", 
+            SqrtBox[
+             FractionBox["3", "2"]]}], " ", 
+          SqrtBox[
+           FractionBox["1", 
+            SuperscriptBox["\[Lambda]", "2"]]]}], 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"0", "<", "\[Lambda]", "<", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "<", "\[Lambda]", "<", "0"}], 
+                  "||", 
+                  RowBox[{
+                    SqrtBox[
+                    FractionBox["3", "2"]], "<", "\[Lambda]", "<", 
+                    SqrtBox["3"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["3"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}]}], "||", 
+                  RowBox[{
+                    SqrtBox["3"], "<", "\[Lambda]", "<", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["6"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["3"]}]}], "||", 
+                  RowBox[{"\[Lambda]", ">", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{"\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["6"]}]}]}], Short[#, 7]& ]], Annotation[#, 
+               Short[
+                Or[
+                 Inequality[
+                 0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-Rational[3, 2]^Rational[1, 2], 
+                  Less, $CellContext`\[Lambda], Less, 0], 
+                 Inequality[
+                 Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, 3^Rational[1, 2]], 
+                 
+                 Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -Rational[3, 2]^Rational[1, 2]], 
+                 Inequality[
+                 3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -3^Rational[1, 2]], $CellContext`\[Lambda] > 
+                 6^Rational[1, 2], $CellContext`\[Lambda] < -6^
+                   Rational[1, 2]], 7], "Tooltip"]& ], "IconizedCustomName", 
+             StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Or", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["2856", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, "IconizedObject"]], 
+         Or[
+          Inequality[
+          0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+           Rational[1, 2]], 
+          
+          Inequality[-Rational[3, 2]^Rational[1, 2], 
+           Less, $CellContext`\[Lambda], Less, 0], 
+          Inequality[
+          Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 
+           3^Rational[1, 2]], 
+          
+          Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, -
+           Rational[3, 2]^Rational[1, 2]], 
+          Inequality[
+          3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+           Rational[1, 2]], 
+          
+          Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+           Less, -3^Rational[1, 2]], $CellContext`\[Lambda] > 
+          6^Rational[1, 2], $CellContext`\[Lambda] < -6^Rational[1, 2]], 
+         SelectWithContents -> True, Selectable -> False]},
+       "ConditionalExpression"]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", 
+      TemplateBox[{
+        FractionBox[
+         SqrtBox[
+          FractionBox["3", "2"]], "\[Lambda]"], 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"0", "<", "\[Lambda]", "<", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "<", "\[Lambda]", "<", "0"}], 
+                  "||", 
+                  RowBox[{
+                    SqrtBox[
+                    FractionBox["3", "2"]], "<", "\[Lambda]", "<", 
+                    SqrtBox["3"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["3"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}]}], "||", 
+                  RowBox[{
+                    SqrtBox["3"], "<", "\[Lambda]", "<", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["6"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["3"]}]}], "||", 
+                  RowBox[{"\[Lambda]", ">", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{"\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["6"]}]}]}], Short[#, 7]& ]], Annotation[#, 
+               Short[
+                Or[
+                 Inequality[
+                 0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-Rational[3, 2]^Rational[1, 2], 
+                  Less, $CellContext`\[Lambda], Less, 0], 
+                 Inequality[
+                 Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, 3^Rational[1, 2]], 
+                 
+                 Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -Rational[3, 2]^Rational[1, 2]], 
+                 Inequality[
+                 3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -3^Rational[1, 2]], $CellContext`\[Lambda] > 
+                 6^Rational[1, 2], $CellContext`\[Lambda] < -6^
+                   Rational[1, 2]], 7], "Tooltip"]& ], "IconizedCustomName", 
+             StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Or", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["2856", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, "IconizedObject"]], 
+         Or[
+          Inequality[
+          0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+           Rational[1, 2]], 
+          
+          Inequality[-Rational[3, 2]^Rational[1, 2], 
+           Less, $CellContext`\[Lambda], Less, 0], 
+          Inequality[
+          Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 
+           3^Rational[1, 2]], 
+          
+          Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, -
+           Rational[3, 2]^Rational[1, 2]], 
+          Inequality[
+          3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+           Rational[1, 2]], 
+          
+          Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+           Less, -3^Rational[1, 2]], $CellContext`\[Lambda] > 
+          6^Rational[1, 2], $CellContext`\[Lambda] < -6^Rational[1, 2]], 
+         SelectWithContents -> True, Selectable -> False]},
+       "ConditionalExpression"]}], ",", 
+     RowBox[{"y", "\[Rule]", 
+      TemplateBox[{
+        RowBox[{
+          SqrtBox[
+           FractionBox["3", "2"]], " ", 
+          SqrtBox[
+           FractionBox["1", 
+            SuperscriptBox["\[Lambda]", "2"]]]}], 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"0", "<", "\[Lambda]", "<", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "<", "\[Lambda]", "<", "0"}], 
+                  "||", 
+                  RowBox[{
+                    SqrtBox[
+                    FractionBox["3", "2"]], "<", "\[Lambda]", "<", 
+                    SqrtBox["3"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["3"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}]}], "||", 
+                  RowBox[{
+                    SqrtBox["3"], "<", "\[Lambda]", "<", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["6"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["3"]}]}], "||", 
+                  RowBox[{"\[Lambda]", ">", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{"\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["6"]}]}]}], Short[#, 7]& ]], Annotation[#, 
+               Short[
+                Or[
+                 Inequality[
+                 0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-Rational[3, 2]^Rational[1, 2], 
+                  Less, $CellContext`\[Lambda], Less, 0], 
+                 Inequality[
+                 Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, 3^Rational[1, 2]], 
+                 
+                 Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -Rational[3, 2]^Rational[1, 2]], 
+                 Inequality[
+                 3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -3^Rational[1, 2]], $CellContext`\[Lambda] > 
+                 6^Rational[1, 2], $CellContext`\[Lambda] < -6^
+                   Rational[1, 2]], 7], "Tooltip"]& ], "IconizedCustomName", 
+             StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Or", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["2856", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, "IconizedObject"]], 
+         Or[
+          Inequality[
+          0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+           Rational[1, 2]], 
+          
+          Inequality[-Rational[3, 2]^Rational[1, 2], 
+           Less, $CellContext`\[Lambda], Less, 0], 
+          Inequality[
+          Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 
+           3^Rational[1, 2]], 
+          
+          Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, -
+           Rational[3, 2]^Rational[1, 2]], 
+          Inequality[
+          3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+           Rational[1, 2]], 
+          
+          Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+           Less, -3^Rational[1, 2]], $CellContext`\[Lambda] > 
+          6^Rational[1, 2], $CellContext`\[Lambda] < -6^Rational[1, 2]], 
+         SelectWithContents -> True, Selectable -> False]},
+       "ConditionalExpression"]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", 
+      TemplateBox[{
+        FractionBox["\[Lambda]", 
+         SqrtBox["6"]], 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"0", "<", "\[Lambda]", "<", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "<", "\[Lambda]", "<", "0"}], 
+                  "||", 
+                  RowBox[{
+                    SqrtBox[
+                    FractionBox["3", "2"]], "<", "\[Lambda]", "<", 
+                    SqrtBox["3"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["3"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}]}], "||", 
+                  RowBox[{
+                    SqrtBox["3"], "<", "\[Lambda]", "<", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["6"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["3"]}]}]}], Short[#, 7]& ]], Annotation[#, 
+               Short[
+                Or[
+                 Inequality[
+                 0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-Rational[3, 2]^Rational[1, 2], 
+                  Less, $CellContext`\[Lambda], Less, 0], 
+                 Inequality[
+                 Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, 3^Rational[1, 2]], 
+                 
+                 Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -Rational[3, 2]^Rational[1, 2]], 
+                 Inequality[
+                 3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -3^Rational[1, 2]]], 7], "Tooltip"]& ], 
+             "IconizedCustomName", StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Or", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["2400", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, "IconizedObject"]], 
+         Or[
+          Inequality[
+          0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+           Rational[1, 2]], 
+          
+          Inequality[-Rational[3, 2]^Rational[1, 2], 
+           Less, $CellContext`\[Lambda], Less, 0], 
+          Inequality[
+          Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 
+           3^Rational[1, 2]], 
+          
+          Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, -
+           Rational[3, 2]^Rational[1, 2]], 
+          Inequality[
+          3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+           Rational[1, 2]], 
+          
+          Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+           Less, -3^Rational[1, 2]]], SelectWithContents -> True, Selectable -> 
+         False]},
+       "ConditionalExpression"]}], ",", 
+     RowBox[{"y", "\[Rule]", 
+      TemplateBox[{
+        RowBox[{"-", 
+          FractionBox[
+           SqrtBox[
+            RowBox[{"3", "-", 
+              FractionBox[
+               SuperscriptBox["\[Lambda]", "2"], "2"]}]], 
+           SqrtBox["3"]]}], 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"0", "<", "\[Lambda]", "<", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "<", "\[Lambda]", "<", "0"}], 
+                  "||", 
+                  RowBox[{
+                    SqrtBox[
+                    FractionBox["3", "2"]], "<", "\[Lambda]", "<", 
+                    SqrtBox["3"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["3"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}]}], "||", 
+                  RowBox[{
+                    SqrtBox["3"], "<", "\[Lambda]", "<", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["6"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["3"]}]}]}], Short[#, 7]& ]], Annotation[#, 
+               Short[
+                Or[
+                 Inequality[
+                 0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-Rational[3, 2]^Rational[1, 2], 
+                  Less, $CellContext`\[Lambda], Less, 0], 
+                 Inequality[
+                 Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, 3^Rational[1, 2]], 
+                 
+                 Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -Rational[3, 2]^Rational[1, 2]], 
+                 Inequality[
+                 3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -3^Rational[1, 2]]], 7], "Tooltip"]& ], 
+             "IconizedCustomName", StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Or", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["2400", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, "IconizedObject"]], 
+         Or[
+          Inequality[
+          0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+           Rational[1, 2]], 
+          
+          Inequality[-Rational[3, 2]^Rational[1, 2], 
+           Less, $CellContext`\[Lambda], Less, 0], 
+          Inequality[
+          Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 
+           3^Rational[1, 2]], 
+          
+          Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, -
+           Rational[3, 2]^Rational[1, 2]], 
+          Inequality[
+          3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+           Rational[1, 2]], 
+          
+          Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+           Less, -3^Rational[1, 2]]], SelectWithContents -> True, Selectable -> 
+         False]},
+       "ConditionalExpression"]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", 
+      TemplateBox[{
+        FractionBox["\[Lambda]", 
+         SqrtBox["6"]], 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"0", "<", "\[Lambda]", "<", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "<", "\[Lambda]", "<", "0"}], 
+                  "||", 
+                  RowBox[{
+                    SqrtBox[
+                    FractionBox["3", "2"]], "<", "\[Lambda]", "<", 
+                    SqrtBox["3"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["3"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}]}], "||", 
+                  RowBox[{
+                    SqrtBox["3"], "<", "\[Lambda]", "<", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["6"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["3"]}]}]}], Short[#, 7]& ]], Annotation[#, 
+               Short[
+                Or[
+                 Inequality[
+                 0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-Rational[3, 2]^Rational[1, 2], 
+                  Less, $CellContext`\[Lambda], Less, 0], 
+                 Inequality[
+                 Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, 3^Rational[1, 2]], 
+                 
+                 Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -Rational[3, 2]^Rational[1, 2]], 
+                 Inequality[
+                 3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -3^Rational[1, 2]]], 7], "Tooltip"]& ], 
+             "IconizedCustomName", StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Or", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["2400", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, "IconizedObject"]], 
+         Or[
+          Inequality[
+          0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+           Rational[1, 2]], 
+          
+          Inequality[-Rational[3, 2]^Rational[1, 2], 
+           Less, $CellContext`\[Lambda], Less, 0], 
+          Inequality[
+          Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 
+           3^Rational[1, 2]], 
+          
+          Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, -
+           Rational[3, 2]^Rational[1, 2]], 
+          Inequality[
+          3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+           Rational[1, 2]], 
+          
+          Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+           Less, -3^Rational[1, 2]]], SelectWithContents -> True, Selectable -> 
+         False]},
+       "ConditionalExpression"]}], ",", 
+     RowBox[{"y", "\[Rule]", 
+      TemplateBox[{
+        FractionBox[
+         SqrtBox[
+          RowBox[{"3", "-", 
+            FractionBox[
+             SuperscriptBox["\[Lambda]", "2"], "2"]}]], 
+         SqrtBox["3"]], 
+        InterpretationBox[
+         DynamicModuleBox[{Typeset`open = False}, 
+          TemplateBox[{"Expression", 
+            StyleBox[
+             TagBox[
+              TooltipBox["\"condition\"", 
+               TagBox[
+                RowBox[{
+                  RowBox[{"0", "<", "\[Lambda]", "<", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}], "<", "\[Lambda]", "<", "0"}], 
+                  "||", 
+                  RowBox[{
+                    SqrtBox[
+                    FractionBox["3", "2"]], "<", "\[Lambda]", "<", 
+                    SqrtBox["3"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["3"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox[
+                    FractionBox["3", "2"]]}]}], "||", 
+                  RowBox[{
+                    SqrtBox["3"], "<", "\[Lambda]", "<", 
+                    SqrtBox["6"]}], "||", 
+                  RowBox[{
+                    RowBox[{"-", 
+                    SqrtBox["6"]}], "<", "\[Lambda]", "<", 
+                    RowBox[{"-", 
+                    SqrtBox["3"]}]}]}], Short[#, 7]& ]], Annotation[#, 
+               Short[
+                Or[
+                 Inequality[
+                 0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-Rational[3, 2]^Rational[1, 2], 
+                  Less, $CellContext`\[Lambda], Less, 0], 
+                 Inequality[
+                 Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, 3^Rational[1, 2]], 
+                 
+                 Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -Rational[3, 2]^Rational[1, 2]], 
+                 Inequality[
+                 3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+                  Rational[1, 2]], 
+                 
+                 Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+                  Less, -3^Rational[1, 2]]], 7], "Tooltip"]& ], 
+             "IconizedCustomName", StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                 TagBox["Or", "IconizedItem"]}]}, {
+               RowBox[{
+                 TagBox["\"Byte count: \"", "IconizedLabel"], 
+                 "\[InvisibleSpace]", 
+                 TagBox["2400", "IconizedItem"]}]}}, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+             "Column", 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+            Dynamic[Typeset`open]}, "IconizedObject"]], 
+         Or[
+          Inequality[
+          0, Less, $CellContext`\[Lambda], Less, Rational[3, 2]^
+           Rational[1, 2]], 
+          
+          Inequality[-Rational[3, 2]^Rational[1, 2], 
+           Less, $CellContext`\[Lambda], Less, 0], 
+          Inequality[
+          Rational[3, 2]^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 
+           3^Rational[1, 2]], 
+          
+          Inequality[-3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, -
+           Rational[3, 2]^Rational[1, 2]], 
+          Inequality[
+          3^Rational[1, 2], Less, $CellContext`\[Lambda], Less, 6^
+           Rational[1, 2]], 
+          
+          Inequality[-6^Rational[1, 2], Less, $CellContext`\[Lambda], 
+           Less, -3^Rational[1, 2]]], SelectWithContents -> True, Selectable -> 
+         False]},
+       "ConditionalExpression"]}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.974688160074809*^9, 3.974688368565179*^9, 
+  3.974689828814436*^9, 3.9746903153040524`*^9, 3.9746907047198267`*^9, 
+  3.974690883683279*^9, 3.974691501686735*^9, 3.974691869263131*^9, 
+  3.974692114158143*^9, 3.974692380173424*^9, 3.974692945904296*^9},
+ CellLabel->"Out[9]=",ExpressionUUID->"8eccbbb2-a567-4b3d-8f28-ed850783e357"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"critClean", "=", " ", 
+  RowBox[{"Normal", "[", "critPoints", "]"}], "  ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Normal", " ", "removes", " ", "conditions"}], " ", 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{{3.9746876506917467`*^9, 3.9746877019937773`*^9}, {
+  3.974688191293415*^9, 3.974688204268194*^9}, {3.974690304472558*^9, 
+  3.97469032118908*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"89bec903-fcba-4689-83f3-4e4a21bedce5"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", 
+      RowBox[{"-", "1"}]}], ",", 
+     RowBox[{"y", "\[Rule]", "0"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", "0"}], ",", 
+     RowBox[{"y", "\[Rule]", "0"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", "1"}], ",", 
+     RowBox[{"y", "\[Rule]", "0"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", 
+      FractionBox[
+       SqrtBox[
+        FractionBox["3", "2"]], "\[Lambda]"]}], ",", 
+     RowBox[{"y", "\[Rule]", 
+      RowBox[{
+       RowBox[{"-", 
+        SqrtBox[
+         FractionBox["3", "2"]]}], " ", 
+       SqrtBox[
+        FractionBox["1", 
+         SuperscriptBox["\[Lambda]", "2"]]]}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", 
+      FractionBox[
+       SqrtBox[
+        FractionBox["3", "2"]], "\[Lambda]"]}], ",", 
+     RowBox[{"y", "\[Rule]", 
+      RowBox[{
+       SqrtBox[
+        FractionBox["3", "2"]], " ", 
+       SqrtBox[
+        FractionBox["1", 
+         SuperscriptBox["\[Lambda]", "2"]]]}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", 
+      FractionBox["\[Lambda]", 
+       SqrtBox["6"]]}], ",", 
+     RowBox[{"y", "\[Rule]", 
+      RowBox[{"-", 
+       FractionBox[
+        SqrtBox[
+         RowBox[{"3", "-", 
+          FractionBox[
+           SuperscriptBox["\[Lambda]", "2"], "2"]}]], 
+        SqrtBox["3"]]}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", 
+      FractionBox["\[Lambda]", 
+       SqrtBox["6"]]}], ",", 
+     RowBox[{"y", "\[Rule]", 
+      FractionBox[
+       SqrtBox[
+        RowBox[{"3", "-", 
+         FractionBox[
+          SuperscriptBox["\[Lambda]", "2"], "2"]}]], 
+       SqrtBox["3"]]}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.9746876727448397`*^9, 3.974688163635641*^9, 
+  3.9746882058543777`*^9, 3.974688371750661*^9, 3.9746898316931267`*^9, 
+  3.974690324943631*^9, 3.9746907074019623`*^9, 3.9746908863020144`*^9, 
+  3.9746915045930567`*^9, 3.974691871931381*^9, 3.9746921174133663`*^9, 
+  3.974692386284885*^9, 3.97469295046497*^9},
+ CellLabel->"Out[10]=",ExpressionUUID->"4f2c47d9-cab7-48a7-9e70-f63c2e23dc19"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"A", " ", "=", " ", 
+  RowBox[{"MatrixForm", "[", "critClean", "]"}]}]], "Input",
+ CellChangeTimes->{{3.974691393981841*^9, 3.974691394837285*^9}},
+ NumberMarks->False,
+ CellLabel->"In[11]:=",ExpressionUUID->"920537b3-6ae4-4957-86fe-45e5aa48efb4"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"x", "\[Rule]", 
+       RowBox[{"-", "1"}]}], 
+      RowBox[{"y", "\[Rule]", "0"}]},
+     {
+      RowBox[{"x", "\[Rule]", "0"}], 
+      RowBox[{"y", "\[Rule]", "0"}]},
+     {
+      RowBox[{"x", "\[Rule]", "1"}], 
+      RowBox[{"y", "\[Rule]", "0"}]},
+     {
+      RowBox[{"x", "\[Rule]", 
+       FractionBox[
+        SqrtBox[
+         FractionBox["3", "2"]], "\[Lambda]"]}], 
+      RowBox[{"y", "\[Rule]", 
+       RowBox[{
+        RowBox[{"-", 
+         SqrtBox[
+          FractionBox["3", "2"]]}], " ", 
+        SqrtBox[
+         FractionBox["1", 
+          SuperscriptBox["\[Lambda]", "2"]]]}]}]},
+     {
+      RowBox[{"x", "\[Rule]", 
+       FractionBox[
+        SqrtBox[
+         FractionBox["3", "2"]], "\[Lambda]"]}], 
+      RowBox[{"y", "\[Rule]", 
+       RowBox[{
+        SqrtBox[
+         FractionBox["3", "2"]], " ", 
+        SqrtBox[
+         FractionBox["1", 
+          SuperscriptBox["\[Lambda]", "2"]]]}]}]},
+     {
+      RowBox[{"x", "\[Rule]", 
+       FractionBox["\[Lambda]", 
+        SqrtBox["6"]]}], 
+      RowBox[{"y", "\[Rule]", 
+       RowBox[{"-", 
+        FractionBox[
+         SqrtBox[
+          RowBox[{"3", "-", 
+           FractionBox[
+            SuperscriptBox["\[Lambda]", "2"], "2"]}]], 
+         SqrtBox["3"]]}]}]},
+     {
+      RowBox[{"x", "\[Rule]", 
+       FractionBox["\[Lambda]", 
+        SqrtBox["6"]]}], 
+      RowBox[{"y", "\[Rule]", 
+       FractionBox[
+        SqrtBox[
+         RowBox[{"3", "-", 
+          FractionBox[
+           SuperscriptBox["\[Lambda]", "2"], "2"]}]], 
+        SqrtBox["3"]]}]}
+    },
+    GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.974691874289953*^9, 3.9746921206557302`*^9, 
+  3.974692388965908*^9, 3.974692954349325*^9},
+ CellLabel->
+  "Out[11]//MatrixForm=",ExpressionUUID->"3f12714d-47c1-421a-9ac8-\
+e950ef28186f"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Evaluate Cosmological parameters.   Variable[[.....]] \
+ extract value ",
+ FontColor->RGBColor[1, 0, 0]]], "Subsection",
+ CellChangeTimes->{{3.974692737780772*^9, 3.974692808812542*^9}},
+ Background->RGBColor[
+  0.88, 1, 0.88],ExpressionUUID->"4b83fa32-b7ea-4aa9-9fdc-ca80565bed23"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"critClean", "[", 
+  RowBox[{"[", "1", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.974691743859865*^9, 3.9746917490993147`*^9}, {
+  3.974692571590127*^9, 3.974692575613295*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"4a4cbc5e-fd70-49b2-aae5-b5ca15c6bf33"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"x", "\[Rule]", 
+    RowBox[{"-", "1"}]}], ",", 
+   RowBox[{"y", "\[Rule]", "0"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.974691750074049*^9, 3.974691889990058*^9, 3.974692123421049*^9, 
+   3.974692392733185*^9, 3.9746925759759502`*^9, {3.974692961194628*^9, 
+   3.9746930092843246`*^9}},
+ CellLabel->"Out[18]=",ExpressionUUID->"e0ae22fc-4d02-411e-b6b1-2fe87e3cd054"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{
+   "\[CapitalOmega]phi", ",", "\[CapitalOmega]m", ",", "wphi", ",", "weff"}], 
+   "}"}], "/.", " ", "%", "  "}]], "Input",
+ CellChangeTimes->{{3.974691752895359*^9, 3.974691763635796*^9}, {
+  3.974692968534131*^9, 3.9746930025419827`*^9}},
+ CellLabel->"In[19]:=",ExpressionUUID->"a8f90bde-9ce6-4273-b75f-fcc57c4ad3a4"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", "0", ",", "1", ",", "1"}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.974691764121503*^9, 3.9746918938112173`*^9, 3.974692126150028*^9, 
+   3.9746923954606028`*^9, 3.974692578854319*^9, {3.974692970077454*^9, 
+   3.9746930119144917`*^9}},
+ CellLabel->"Out[19]=",ExpressionUUID->"4dbc8d0f-28f9-4f98-a687-689e51b21377"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"critClean", "[", 
+  RowBox[{"[", "2", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.974692305861697*^9, 3.974692336258963*^9}, {
+  3.974692427958117*^9, 3.974692472091001*^9}, {3.974692524231526*^9, 
+  3.97469258250121*^9}},
+ CellLabel->"In[20]:=",ExpressionUUID->"4e5c760a-40da-4ee1-acf5-54556937acbf"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"x", "\[Rule]", "0"}], ",", 
+   RowBox[{"y", "\[Rule]", "0"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.974692336988801*^9, 3.974692398287572*^9, {3.974692428958213*^9, 
+   3.974692438965139*^9}, 3.974692476346047*^9, {3.974692525131918*^9, 
+   3.974692582949294*^9}, {3.974692993856638*^9, 3.9746930151064377`*^9}},
+ CellLabel->"Out[20]=",ExpressionUUID->"d7b95e08-697b-4b44-88ac-e58379b2a692"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "\[CapitalOmega]phi", ",", "\[CapitalOmega]m", ",", "wphi", ",", "weff"}],
+     "}"}], "/.", " ", "%"}], "  ", "\n"}]], "Input",
+ CellChangeTimes->{3.974693021245249*^9},
+ CellLabel->"In[21]:=",ExpressionUUID->"db5a2a8d-d112-4017-b75d-84cd61a4f765"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Power", "infy", 
+   "\"Infinite expression \\!\\(\\*FractionBox[\\\"1\\\", \\\"0\\\"]\\) \
+encountered.\"", 2, 21, 2, 35199651049630929124, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.974692591389658*^9, 3.974693021983045*^9},
+ CellLabel->
+  "During evaluation of \
+In[21]:=",ExpressionUUID->"e66f6bf1-2005-4fbd-85a7-42d3fab43780"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Infinity", "indet", 
+   "\"Indeterminate expression \\!\\(\\*RowBox[{\\\"0\\\", \\\" \\\", \
+\\\"ComplexInfinity\\\"}]\\) encountered.\"", 2, 21, 3, 35199651049630929124, 
+   "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.974692591389658*^9, 3.974693022010282*^9},
+ CellLabel->
+  "During evaluation of \
+In[21]:=",ExpressionUUID->"b5f3d644-d13b-45f8-a474-a27a566ea7bc"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", "1", ",", "Indeterminate", ",", "0"}], "}"}]], "Output",
+ CellChangeTimes->{3.9746925914183903`*^9, 3.974693022011837*^9},
+ CellLabel->"Out[21]=",ExpressionUUID->"ab37e2a2-e715-4cee-9da4-5d783131a383"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"critClean", "[", 
+  RowBox[{"[", "4", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.9746926147578783`*^9, 3.97469262302923*^9}},
+ CellLabel->"In[22]:=",ExpressionUUID->"066668e9-b7d1-46df-88f8-0b3ce7009efe"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"x", "\[Rule]", 
+    FractionBox[
+     SqrtBox[
+      FractionBox["3", "2"]], "\[Lambda]"]}], ",", 
+   RowBox[{"y", "\[Rule]", 
+    RowBox[{
+     RowBox[{"-", 
+      SqrtBox[
+       FractionBox["3", "2"]]}], " ", 
+     SqrtBox[
+      FractionBox["1", 
+       SuperscriptBox["\[Lambda]", "2"]]]}]}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.97469261698263*^9, 3.9746926234041433`*^9}, 
+   3.974693025959364*^9},
+ CellLabel->"Out[22]=",ExpressionUUID->"6437c83c-ee79-4af7-af10-dd0eb1674451"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "\[CapitalOmega]phi", ",", "\[CapitalOmega]m", ",", "wphi", ",", "weff"}],
+     "}"}], "/.", " ", "%"}], "  ", "\n"}]], "Input",
+ CellChangeTimes->{3.97469303137372*^9},
+ CellLabel->"In[23]:=",ExpressionUUID->"c2749929-c119-46a4-a1d3-033a1b8cee27"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox["3", 
+    SuperscriptBox["\[Lambda]", "2"]], ",", 
+   RowBox[{"1", "-", 
+    FractionBox["3", 
+     SuperscriptBox["\[Lambda]", "2"]]}], ",", "0", ",", "0"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.974692628246572*^9, 3.974693032813899*^9},
+ CellLabel->"Out[23]=",ExpressionUUID->"2aaae2c8-0ab2-4077-a19f-aefc3369fa91"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{-5, Automatic}, {Automatic, 2}},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"14.3 for Mac OS X ARM (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"9e5de8ab-8ebb-49c5-97c9-81af575ba55e"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 404, 7, 86, "Subsection",ExpressionUUID->"a4a5b08b-e354-4ed0-8915-9aae3dfe61fe"],
+Cell[983, 31, 266, 5, 62, "Input",ExpressionUUID->"c34fb0e4-0749-4f7e-bbe0-ecae96530d03"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1286, 41, 256, 4, 86, "Subsection",ExpressionUUID->"da64a89a-b164-4701-a5d7-19df0a16f412"],
+Cell[1545, 47, 1038, 32, 113, "Input",ExpressionUUID->"abf7e5e6-22f2-4028-8abd-b46dac579057"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2620, 84, 350, 6, 86, "Subsection",ExpressionUUID->"06669671-932a-466f-889a-cde6b9605afc"],
+Cell[2973, 92, 1395, 35, 189, "Input",ExpressionUUID->"05e24f64-3486-49f5-84dc-2ce8e3650981"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4405, 132, 250, 4, 86, "Subsection",ExpressionUUID->"dbd80992-6c91-49ee-ad06-f8edf9191a23"],
+Cell[CellGroupData[{
+Cell[4680, 140, 474, 13, 62, "Input",ExpressionUUID->"3b83f29d-87c9-4b72-aae7-917a67321553"],
+Cell[5157, 155, 59961, 1412, 172, "Output",ExpressionUUID->"8eccbbb2-a567-4b3d-8f28-ed850783e357"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[65155, 1572, 454, 9, 36, "Input",ExpressionUUID->"89bec903-fcba-4689-83f3-4e4a21bedce5"],
+Cell[65612, 1583, 2273, 73, 78, "Output",ExpressionUUID->"4f2c47d9-cab7-48a7-9e70-f63c2e23dc19"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[67922, 1661, 270, 5, 36, "Input",ExpressionUUID->"920537b3-6ae4-4957-86fe-45e5aa48efb4"],
+Cell[68195, 1668, 2224, 76, 283, "Output",ExpressionUUID->"3f12714d-47c1-421a-9ac8-e950ef28186f"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[70468, 1750, 306, 5, 86, "Subsection",ExpressionUUID->"4b83fa32-b7ea-4aa9-9fdc-ca80565bed23"],
+Cell[CellGroupData[{
+Cell[70799, 1759, 281, 5, 36, "Input",ExpressionUUID->"4a4cbc5e-fd70-49b2-aae5-b5ca15c6bf33"],
+Cell[71083, 1766, 423, 10, 41, "Output",ExpressionUUID->"e0ae22fc-4d02-411e-b6b1-2fe87e3cd054"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[71543, 1781, 370, 8, 36, "Input",ExpressionUUID->"a8f90bde-9ce6-4273-b75f-fcc57c4ad3a4"],
+Cell[71916, 1791, 365, 7, 41, "Output",ExpressionUUID->"4dbc8d0f-28f9-4f98-a687-689e51b21377"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[72318, 1803, 327, 6, 36, "Input",ExpressionUUID->"4e5c760a-40da-4ee1-acf5-54556937acbf"],
+Cell[72648, 1811, 449, 9, 41, "Output",ExpressionUUID->"d7b95e08-697b-4b44-88ac-e58379b2a692"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[73134, 1825, 318, 8, 62, "Input",ExpressionUUID->"db5a2a8d-d112-4017-b75d-84cd61a4f765"],
+Cell[73455, 1835, 404, 10, 43, "Message",ExpressionUUID->"e66f6bf1-2005-4fbd-85a7-42d3fab43780"],
+Cell[73862, 1847, 439, 11, 32, "Message",ExpressionUUID->"b5f3d644-d13b-45f8-a474-a27a566ea7bc"],
+Cell[74304, 1860, 250, 4, 41, "Output",ExpressionUUID->"ab37e2a2-e715-4cee-9da4-5d783131a383"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[74591, 1869, 231, 4, 36, "Input",ExpressionUUID->"066668e9-b7d1-46df-88f8-0b3ce7009efe"],
+Cell[74825, 1875, 541, 17, 75, "Output",ExpressionUUID->"6437c83c-ee79-4af7-af10-dd0eb1674451"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[75403, 1897, 317, 8, 62, "Input",ExpressionUUID->"c2749929-c119-46a4-a1d3-033a1b8cee27"],
+Cell[75723, 1907, 377, 10, 72, "Output",ExpressionUUID->"2aaae2c8-0ab2-4077-a19f-aefc3369fa91"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
