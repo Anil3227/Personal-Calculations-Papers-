@@ -155,7 +155,6 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"\[CapitalOmega]phi", "=", 
    RowBox[{
-    RowBox[{"-", 
      RowBox[{"x", "^", "2"}]}], "+", 
     RowBox[{"y", "^", "2"}]}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
@@ -11183,4 +11182,5 @@ Cell[606670, 11086, 209, 8, 110, "Subsection",ExpressionUUID->"eed9a57f-8843-4fa
 }
 ]
 *)
+
 
