@@ -26,6 +26,10 @@ This repository is a comprehensive collection of **cosmological tools, codes, an
 * Most of the work is implemented in **Mathematica** for efficient symbolic and numerical computations.
 * Easy to adapt for new potentials, models, or research projects.
 
+
+### **Supernova Analyis *
+* You can see from supernova data best fit is LCDM*
+
 ---
 
 ## 📌 Key Features
