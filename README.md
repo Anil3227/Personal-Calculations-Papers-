@@ -27,8 +27,8 @@ This repository is a comprehensive collection of **cosmological tools, codes, an
 * Easy to adapt for new potentials, models, or research projects.
 
 
-### **Supernova Analyis **
-* You can see from supernova data best fit is LCDM*
+### **Supernova Analyis**
+* You can see from supernova data best fit is LCDM ( Dark Energy Exist)*
 
 ---
 
